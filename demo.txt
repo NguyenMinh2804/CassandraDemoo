@@ -1,0 +1,19 @@
+CREATE KEYSPACE cassandraDemo1
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1} AND durable_writes = true;
+
+
+CREATE TABLE student_laptop
+(
+laptop text,
+id int,	
+name text,
+faculty text,
+phone text,
+PRIMARY KEY(laptop, id)
+);
+
+INSERT INTO student_laptop (laptop, id, name, faculty, phone) VALUES('DELL', 1, 'Sam', 'SE', '0123456789');
+INSERT INTO student_laptop (laptop, id, name, faculty, phone) VALUES('ASUS', 2, 'Jason', 'SE', '7894561203');
+INSERT INTO student_laptop (laptop, id, name, faculty, phone) VALUES('MSI', 3, 'Henry', 'SE', '45678921345');
+
+select * from student_laptop where laptop = 'DELL' order by id;
